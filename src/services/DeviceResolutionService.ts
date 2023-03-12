@@ -4,7 +4,7 @@ class DeviceResolutionService {
   public device: any
   constructor() {
     this.device = reactive({
-      isMobile: false,
+      isMobile: window.outerWidth < 768,
       change(newValue: boolean) {
         this.isMobile = newValue
       }
