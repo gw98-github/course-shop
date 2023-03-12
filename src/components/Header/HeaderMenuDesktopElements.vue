@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-desktop" v-if="!isMobile">
+  <div class="menu-desktop">
     <div class="menu-item">
       <h1>Produkty</h1>
     </div>
@@ -13,8 +13,6 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { menuRoutes } from '@/router/index'
-import DeviceResolutionService from '@/services/DeviceResolutionService'
 
 export interface MenuItem {
   name: string
@@ -22,25 +20,19 @@ export interface MenuItem {
 }
 
 export default defineComponent({
-  data() {
-    return {
-      menuItems: menuRoutes
-    }
-  },
-  computed: {
-    isMobile() {
-      return DeviceResolutionService.device.isMobile
-    }
+  props: {
+    menuItems: Array<MenuItem>
   }
 })
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/globals.scss';
+@import '@/assets/globals.scss';
 
 .menu-desktop {
+  width: 100%;
   background-color: #ddd;
-  padding: 20px;
+  padding: 5px 0;
   display: flex;
   max-height: 40px;
 
@@ -53,7 +45,7 @@ export default defineComponent({
     border-radius: 5px;
 
     h1 {
-      font-size: 12px;
+      font-size: 11px;
       color: white;
 
       @media (min-width: $desktop) {

@@ -15,7 +15,7 @@ class DeviceResolutionService {
 
   public onResize() {
     addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
+      if (window.outerWidth >= 768) {
         this.device.change(false)
       } else {
         this.device.change(true)
