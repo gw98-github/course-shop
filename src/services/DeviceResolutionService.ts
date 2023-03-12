@@ -1,18 +1,26 @@
+import { reactive } from 'vue'
+
 class DeviceResolutionService {
-  private isMobile = false
+  public device: any
+  constructor() {
+    this.device = reactive({
+      isMobile: false,
+      change(newValue: boolean) {
+        this.isMobile = newValue
+      }
+    })
+
+    this.onResize()
+  }
 
   public onResize() {
     addEventListener('resize', () => {
       if (window.innerWidth > 768) {
-        this.isMobile = false
+        this.device.change(false)
       } else {
-        this.isMobile = true
+        this.device.change(true)
       }
     })
-  }
-
-  public isMobileDevice() {
-    return this.isMobile
   }
 }
 
