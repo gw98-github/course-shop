@@ -1,6 +1,10 @@
 <template>
   <div class="header">
     <div class="menu-icon" v-if="isMobile" @click="openMobileMenu()"></div>
+
+    <ModalComponent v-if="menuModal" @close="closeModal()">
+      <HeaderMenuMobileElements v-if="isMobile" :menu-items="menuItems" @close="closeModal()" />
+    </ModalComponent>
     <LogoElement></LogoElement>
     <div class="search-icon" v-if="isMobile" @click="openSearch()"></div>
     <HeaderMenuDesktopElements v-if="!isMobile" :menu-items="menuItems" class="desktop-items" />
@@ -12,12 +16,15 @@ import { defineComponent } from 'vue'
 import { menuRoutes } from '@/router/index'
 import DeviceResolutionService from '@/services/DeviceResolutionService'
 import HeaderMenuDesktopElements from './HeaderMenuDesktopElements.vue'
+import HeaderMenuMobileElements from './HeaderMenuMobileElements.vue'
 import LogoElement from './LogoElement.vue'
+import ModalComponent from '../ModalComponent.vue'
 
 export default defineComponent({
   data() {
     return {
-      menuItems: menuRoutes
+      menuItems: menuRoutes,
+      menuModal: false
     }
   },
   computed: {
@@ -27,13 +34,16 @@ export default defineComponent({
   },
   methods: {
     openMobileMenu() {
-      console.log('openMenu')
+      this.menuModal = true
+    },
+    closeModal() {
+      this.menuModal = false
     },
     openSearch() {
       console.log('openSearch')
     }
   },
-  components: { HeaderMenuDesktopElements, LogoElement }
+  components: { HeaderMenuDesktopElements, HeaderMenuMobileElements, LogoElement, ModalComponent }
 })
 </script>
 
