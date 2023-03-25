@@ -4,6 +4,7 @@ import HomeView from '../views/MainView/HomeView.vue'
 import PromotionsView from '../views/MainView/PromotionsView.vue'
 import ContactView from '../views/MainView/ContactView.vue'
 import ProductsView from '../views/MainView/ProductsView.vue'
+import ProductPageView from '../views/MainView/ProductPageView.vue'
 
 export const menuRoutes = [
   {
@@ -35,7 +36,14 @@ export const menuRoutes = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [...menuRoutes]
+  routes: [
+    ...menuRoutes,
+    {
+      path: '/product/:id',
+      name: 'Product',
+      component: ProductPageView
+    }
+  ]
 })
 
 export default router

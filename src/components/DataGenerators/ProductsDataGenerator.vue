@@ -11,9 +11,9 @@ export default defineComponent({
     async generateData() {
       //   console.log(await (await FirebaseService.get('name')).val())
       let id = 'id' + Math.random().toString(16).slice(2)
-      FirebaseService.create('products/' + id, this.generateProduct())
+      FirebaseService.create('products/' + id, this.generateProduct(id))
     },
-    generateProduct() {
+    generateProduct(id: string) {
       const minPrice = 5
       const maxPrice = 250
       const price = (Math.random() * (maxPrice - minPrice) + minPrice).toFixed(2)
@@ -27,6 +27,7 @@ export default defineComponent({
       const category = categories[categoryID]
 
       return {
+        id,
         name,
         price,
         category,

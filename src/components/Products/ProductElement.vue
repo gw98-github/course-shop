@@ -1,5 +1,5 @@
 <template>
-  <div class="product-card">
+  <RouterLink :to="`/product/${productObject.id}`" class="product-card">
     <div class="product-image">
       <img
         width="200"
@@ -12,11 +12,10 @@
       <h2 class="product-name">{{ productObject.name }}</h2>
       <div class="product-meta">
         <span class="product-category">{{ productObject.category }}</span>
-        <span class="product-id">{{ productObject.id }}</span>
       </div>
       <div class="product-price">{{ productObject.price }} zł</div>
     </div>
-  </div>
+  </RouterLink>
 </template>
 
 <script lang="ts">
@@ -38,9 +37,6 @@ export default defineComponent({
   },
   props: {
     product: Object
-  },
-  created() {
-    console.log(this.productObject)
   }
 })
 </script>
@@ -50,6 +46,7 @@ export default defineComponent({
 
 .product-card {
   display: flex;
+  text-decoration: none;
   border: 1px solid #ccc;
   flex-direction: column;
   align-items: center;
@@ -60,6 +57,10 @@ export default defineComponent({
   @media (min-width: $tablet) {
     flex-direction: row;
   }
+}
+
+.product-card:hover {
+  background: #eee;
 }
 
 .product-image {

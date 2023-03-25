@@ -17,7 +17,6 @@ export default defineComponent({
   },
   async created() {
     const items = await (await FirebaseService.get('/products/')).val()
-    console.log(items)
     this.products = items
   },
   components: { ProductElement }
