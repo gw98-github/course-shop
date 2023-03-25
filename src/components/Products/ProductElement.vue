@@ -47,6 +47,7 @@ export default defineComponent({
 .product-card {
   display: flex;
   text-decoration: none;
+  color: inherit;
   border: 1px solid #ccc;
   flex-direction: column;
   align-items: center;
