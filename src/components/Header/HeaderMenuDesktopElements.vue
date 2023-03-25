@@ -1,13 +1,13 @@
 <template>
   <div class="menu-desktop">
-    <div class="menu-item">
-      <h1>Produkty</h1>
-    </div>
-    <div class="menu-item" v-for="menuItem in menuItems" :key="menuItem.path">
-      <RouterLink :to="menuItem.path"
-        ><h1>{{ menuItem.name }}</h1></RouterLink
-      >
-    </div>
+    <RouterLink
+      v-for="menuItem in menuItems"
+      :key="menuItem.path"
+      :to="menuItem.path"
+      class="menu-item"
+    >
+      <h1>{{ menuItem.name }}</h1>
+    </RouterLink>
   </div>
 </template>
 

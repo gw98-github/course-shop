@@ -3,12 +3,18 @@ import AboutView from '../views/MainView/AboutView.vue'
 import HomeView from '../views/MainView/HomeView.vue'
 import PromotionsView from '../views/MainView/PromotionsView.vue'
 import ContactView from '../views/MainView/ContactView.vue'
+import ProductsView from '../views/MainView/ProductsView.vue'
 
 export const menuRoutes = [
   {
     path: '/',
     name: 'Strona główna',
     component: HomeView
+  },
+  {
+    path: '/products',
+    name: 'Produkty',
+    component: ProductsView
   },
   {
     path: '/promotions',
