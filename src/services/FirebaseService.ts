@@ -28,7 +28,7 @@ class FirebaseService {
     return get(child(ref(db, 'shop'), path))
   }
 
-  create(path: string, el: string) {
+  create(path: string, el: any) {
     return set(ref(db, 'shop/' + path), el)
   }
 
