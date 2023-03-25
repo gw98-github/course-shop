@@ -49,7 +49,7 @@ $product-background-color: #f5f5f5;
 $product-text-color: #333;
 $product-image-width-mobile: 100%;
 $product-image-width-desktop: 40%;
-$btn-background-color: #008cba;
+$btn-background-color: $button-primary-color;
 $btn-text-color: white;
 $btn-border-radius: 0.25rem;
 $btn-transition: background-color 0.2s ease-in-out;
@@ -110,7 +110,7 @@ $btn-transition: background-color 0.2s ease-in-out;
 
     &__add-to-cart {
       display: inline-block;
-      background-color: #008cba;
+      background-color: $button-primary-color;
       color: white;
       padding: 0.5rem 1rem;
       border: none;

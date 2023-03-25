@@ -1,13 +1,13 @@
 <template>
   <div class="menu-mobile">
-    <div class="menu-item">
-      <h1>Produkty</h1>
-    </div>
-    <div class="menu-item" @click="closeModal()" v-for="menuItem in menuItems" :key="menuItem.path">
-      <RouterLink :to="menuItem.path"
-        ><h1>{{ menuItem.name }}</h1></RouterLink
-      >
-    </div>
+    <RouterLink
+      :to="menuItem.path"
+      class="menu-item"
+      @click="closeModal()"
+      v-for="menuItem in menuItems"
+      :key="menuItem.path"
+      ><h1>{{ menuItem.name }}</h1></RouterLink
+    >
   </div>
 </template>
 
@@ -36,7 +36,6 @@ export default defineComponent({
 
 .menu-mobile {
   width: 100%;
-  background-color: #ddd;
   padding: 5px 0;
   display: flex;
   flex-direction: column;
@@ -45,7 +44,7 @@ export default defineComponent({
   align-items: center;
 
   .menu-item {
-    background-color: #333;
+    background-color: $button-primary-color;
     padding: 0 20px;
     margin: 0 10px;
     text-align: center;

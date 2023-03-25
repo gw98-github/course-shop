@@ -31,13 +31,13 @@ export default defineComponent({
 
 .menu-desktop {
   width: 100%;
-  background-color: #ddd;
+  background-color: $background-primary-color;
   padding: 5px 0;
   display: flex;
   max-height: 40px;
 
   .menu-item {
-    background-color: #333;
+    background-color: $button-primary-color;
     padding: 0 20px;
     margin: 0 10px;
     text-align: center;

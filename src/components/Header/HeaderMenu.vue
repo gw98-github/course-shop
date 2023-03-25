@@ -61,7 +61,7 @@ export default defineComponent({
   height: 70px;
   padding: 0 10px;
   width: auto;
-  background-color: aquamarine;
+  background-color: $background-primary-color;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

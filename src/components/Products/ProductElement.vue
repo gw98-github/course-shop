@@ -99,6 +99,6 @@ export default defineComponent({
 .product-price {
   font-size: 1.2rem;
   font-weight: bold;
-  color: #008cba;
+  color: $button-primary-color;
 }
 </style>

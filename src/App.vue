@@ -23,7 +23,18 @@ import FooterComponent from './components/FooterComponent.vue'
 body {
   margin: 0;
 }
+</style>
+
+<style lang="scss" scoped>
+@import '@/assets/globals.scss';
 main {
-  padding-bottom: 50px;
+  padding: 20px 0 40px 0;
+  @media (min-width: $tablet) {
+    padding: 30px 5% 40px 5%;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 50px 10% 40px 10%;
+  }
 }
 </style>
