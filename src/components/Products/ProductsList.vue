@@ -1,24 +1,26 @@
 <template>
   <div class="products-list">
-    {{ menuItems }}
+    <ProductElement v-for="product in products" :key="product" :product="product"></ProductElement>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 import FirebaseService from '@/services/FirebaseService'
+import ProductElement from './ProductElement.vue'
 
 export default defineComponent({
   data() {
     return {
-      menuItems: []
+      products: []
     }
   },
   async created() {
     const items = await (await FirebaseService.get('/products/')).val()
     console.log(items)
-    this.menuItems = items
-  }
+    this.products = items
+  },
+  components: { ProductElement }
 })
 </script>
 

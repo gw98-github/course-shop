@@ -23,4 +23,7 @@ import FooterComponent from './components/FooterComponent.vue'
 body {
   margin: 0;
 }
+main {
+  padding-bottom: 50px;
+}
 </style>

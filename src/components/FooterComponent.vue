@@ -21,7 +21,7 @@ export default defineComponent({
   height: 50px;
   outline: 1px #777;
   background: #ccc;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   display: flex;
   align-items: center;
