@@ -1,12 +1,12 @@
 <template>
   <div class="header">
-    <div class="menu-icon" v-if="isMobile" @click="openMobileMenu()"></div>
+    <font-awesome-icon :icon="['fas', 'bars']" v-if="isMobile" @click="openMobileMenu()" />
 
     <ModalComponent v-if="menuModal" @close="closeModal()">
       <HeaderMenuMobileElements v-if="isMobile" :menu-items="menuItems" @close="closeModal()" />
     </ModalComponent>
     <LogoElement></LogoElement>
-    <div class="search-icon" v-if="isMobile" @click="openSearch()"></div>
+    <font-awesome-icon :icon="['fas', 'magnifying-glass']" v-if="isMobile" @click="openSearch()" />
     <HeaderMenuDesktopElements v-if="!isMobile" :menu-items="menuItems" class="desktop-items" />
   </div>
 </template>
@@ -50,13 +50,6 @@ export default defineComponent({
 <style lang="scss" scoped>
 @import '@/assets/globals.scss';
 
-@mixin icon($theme: green) {
-  height: 20px;
-  width: 20px;
-  background: $theme;
-  cursor: pointer;
-}
-
 .header {
   height: 70px;
   padding: 0 10px;
@@ -72,14 +65,6 @@ export default defineComponent({
     height: 120px;
     justify-content: center;
     align-items: flex-start;
-  }
-
-  .menu-icon {
-    @include icon;
-  }
-
-  .search-icon {
-    @include icon(blue);
   }
 }
 </style>

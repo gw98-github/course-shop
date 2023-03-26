@@ -1,9 +1,10 @@
 <template>
   <div>
-    <button v-if="user" @click="googleSignOut()">Wyloguj</button>
-    <button v-if="!user" @click="googleSignIn()">Zaloguj</button>
-
-    <div v-if="user">Elementy rekomendowane dla Ciebie {{ user.providerData[0].displayName }}</div>
+    <button v-if="user" class="google-auth-button" @click="googleSignOut()">Wyloguj</button>
+    <button v-if="!user" class="google-auth-button" @click="googleSignIn()">
+      <img src="https://img.icons8.com/color/16/000000/google-logo.png" alt="Google Logo" />
+      <span>Zaloguj się z Google</span>
+    </button>
   </div>
 </template>
 
@@ -37,7 +38,6 @@ export default defineComponent({
           const credential = GoogleAuthProvider.credentialFromError(error)
           // ...
         })
-      console.log(this.user, this.auth)
     },
     googleSignOut(): void {
       const auth = getAuth()
@@ -59,3 +59,44 @@ export default defineComponent({
   mounted() {}
 })
 </script>
+<style lang="scss" scoped>
+@import '@/assets/globals.scss';
+.google-auth-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 6px 24px;
+  background-color: #ffffff;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  min-height: 36px;
+  color: #5f6368;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  @media (min-width: $tablet) {
+    font-size: 11px;
+  }
+  @media (min-width: $desktop) {
+    min-height: 40px;
+  }
+  @media (min-width: 1100px) {
+    font-size: 12px;
+    padding: 12px 24px;
+  }
+  &:hover {
+    background-color: #f1f3f4;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
+  img {
+    margin-right: 12px;
+  }
+}
+</style>

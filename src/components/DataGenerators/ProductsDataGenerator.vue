@@ -9,7 +9,6 @@ import FirebaseService from '@/services/FirebaseService'
 export default defineComponent({
   methods: {
     async generateData() {
-      //   console.log(await (await FirebaseService.get('name')).val())
       let id = 'id' + Math.random().toString(16).slice(2)
       FirebaseService.create('products/' + id, this.generateProduct(id))
     },

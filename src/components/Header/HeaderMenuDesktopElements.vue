@@ -8,11 +8,13 @@
     >
       <h1>{{ menuItem.name }}</h1>
     </RouterLink>
+    <FirebaseLogin></FirebaseLogin>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import FirebaseLogin from '../FirebaseLogin.vue'
 
 export interface MenuItem {
   name: string
@@ -22,7 +24,8 @@ export interface MenuItem {
 export default defineComponent({
   props: {
     menuItems: Array<MenuItem>
-  }
+  },
+  components: { FirebaseLogin }
 })
 </script>
 

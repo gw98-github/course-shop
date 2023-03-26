@@ -1,7 +1,7 @@
 <template>
   <div class="modal">
     <div class="modal-header">
-      <span class="close-icon" @click="closeModal()">X</span>
+      <button class="close-button" @click="closeModal()">X</button>
     </div>
     <slot></slot>
   </div>
@@ -40,16 +40,21 @@ export default defineComponent({
     display: flex;
     justify-content: flex-end;
     padding: 10px;
+  }
+}
+.close-button {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #cccccc;
+  border: none;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
-    .close-icon {
-      width: 30px;
-      height: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: gray;
-      cursor: pointer;
-    }
+  &:hover {
+    background-color: #333333;
   }
 }
 </style>

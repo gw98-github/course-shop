@@ -9,10 +9,12 @@
       ><h1>{{ menuItem.name }}</h1></RouterLink
     >
   </div>
+  <FirebaseLogin></FirebaseLogin>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import FirebaseLogin from '../FirebaseLogin.vue'
 
 export interface MenuItem {
   name: string
@@ -27,7 +29,8 @@ export default defineComponent({
     closeModal() {
       this.$emit('close')
     }
-  }
+  },
+  components: { FirebaseLogin }
 })
 </script>
 
@@ -52,12 +55,8 @@ export default defineComponent({
     border-radius: 5px;
 
     h1 {
-      font-size: 11px;
+      font-size: 14px;
       color: white;
-
-      @media (min-width: $desktop) {
-        font-size: 16px;
-      }
     }
   }
 
