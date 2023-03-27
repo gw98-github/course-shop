@@ -16,7 +16,7 @@ coverage
 
 /cypress/videos/
 /cypress/screenshots/
-FirebaseService.ts
+src/services/FirebaseService.ts
 
 # Editor directories and files
 .vscode/*
